@@ -16,21 +16,18 @@
  * limitations under the License.
  */
 
-package org.codehaus.stomp.frame
-{
+package org.codehaus.stomp.frame {
 import flash.utils.ByteArray;
 
-public class MessageFrame
-	{
-		public var body : ByteArray;
-		public var headers : Object;
+public class MessageFrame {
+    public function MessageFrame(body:ByteArray, headers:Object) {
+        this.body = body;
+        this.headers = headers;
+    }
 
-		public function MessageFrame (body : ByteArray, headers : Object)
-		{
-			this.body = body;
-			this.headers = headers;
-		}
+    public var body:ByteArray;
+    public var headers:Object;
 
-	}
+}
 
 }

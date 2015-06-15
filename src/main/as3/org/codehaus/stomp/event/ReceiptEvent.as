@@ -15,25 +15,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
- /*
- 	Version 0.1 : R Jewson (rjewson at gmail dot com).  First release, only for reciept of messages.
+
+/*
+ Version 0.1 : R Jewson (rjewson at gmail dot com).  First release, only for reciept of messages.
  */
 
 package org.codehaus.stomp.event {
 
 import flash.events.Event;
 
-public class ReceiptEvent extends Event
-	{
-		static public const RECEIPT : String = "ReceiptEvent";
-		
-		public var receiptID : String;
-		
-		public function ReceiptEvent (eventType : String) 
-		{
-			super(eventType, true, false);
-		}
-		
+public class ReceiptEvent extends Event {
+	static public const RECEIPT:String = "ReceiptEvent";
+
+	public function ReceiptEvent(eventType:String) {
+		super(eventType, true, false);
 	}
+
+	public var receiptID:String;
+
+}
 }

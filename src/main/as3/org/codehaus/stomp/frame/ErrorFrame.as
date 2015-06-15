@@ -16,20 +16,17 @@
  * limitations under the License.
  */
 
-package org.codehaus.stomp.frame
-{
+package org.codehaus.stomp.frame {
 import flash.utils.ByteArray;
 
-public class ErrorFrame
-	{
-		public var body : ByteArray;
-		public var headers : Object;
+public class ErrorFrame {
+    public function ErrorFrame(body:ByteArray, headers:Object) {
+        this.body = body;
+        this.headers = headers;
+    }
 
-		public function ErrorFrame (body : ByteArray, headers : Object)
-		{
-			this.body = body;
-			this.headers = headers;
-		}
+    public var body:ByteArray;
+    public var headers:Object;
 
-	}
+}
 }

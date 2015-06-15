@@ -29,11 +29,11 @@ import org.codehaus.stomp.frame.ErrorFrame;
 public class STOMPErrorEvent extends Event {
     static public const ERROR:String = "ErrorEvent";
 
-    public var error:ErrorFrame;
-
     public function STOMPErrorEvent(eventType:String) {
         super(eventType, true, false);
     }
+
+    public var error:ErrorFrame;
 
 }
 }
