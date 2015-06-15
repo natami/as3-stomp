@@ -1,4 +1,4 @@
-/**
+﻿/**
  *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -7,7 +7,7 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.src.main.as3.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,16 +15,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ 
+ /*
+ 	Version 0.1 : R Jewson (rjewson at gmail dot com).  First release, only for reciept of messages.
+ */
 
-package org.codehaus.stomp.headers
-{
-	public class CommitHeaders extends Headers
-	{
+package org.codehaus.stomp.event {
+
+import flash.events.Event;
+
+import org.codehaus.stomp.frame.MessageFrame;
+
+public class MessageEvent extends Event
+	{		
+		static public const MESSAGE : String = "message";
 		
-		public function set receipt (id : String) : void
+		public var message : MessageFrame;
+		
+		public function MessageEvent(eventType : String) 
 		{
-			addHeader(SharedHeaders.RECEIPT, id);
+			super(eventType, true, false);
 		}
+		
 		
 	}
 }

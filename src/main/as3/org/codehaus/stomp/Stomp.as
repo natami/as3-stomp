@@ -7,7 +7,7 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.src.main.as3.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,19 +22,20 @@
  */
 
 package org.codehaus.stomp {
-	
-	import flash.errors.IOError;
-	import flash.events.*;
-	import flash.net.Socket;
-	import flash.utils.ByteArray;
-	import flash.utils.Timer;
-	
-	import org.codehaus.stomp.event.*;
-	import org.codehaus.stomp.frame.*;
-	import org.codehaus.stomp.headers.*;
-	import org.rxr.utils.ByteArrayReader;
-	
-	[Event(name="connected", type="org.codehaus.stomp.event.ConnectedEvent")]
+
+import flash.errors.IOError;
+import flash.events.*;
+import flash.net.Socket;
+import flash.utils.ByteArray;
+import flash.utils.Timer;
+
+import org.codehaus.stomp.event.*;
+import org.codehaus.stomp.frame.*;
+import org.codehaus.stomp.headers.*;
+
+import rxr.utils.ByteArrayReader;
+
+[Event(name="connected", type="org.codehaus.stomp.event.ConnectedEvent")]
 	[Event(name="message", type="org.codehaus.stomp.event.MessageEvent")]
 	[Event(name="receipt", type="org.codehaus.stomp.event.ReceiptEvent")]
 	[Event(name="fault", type="org.codehaus.stomp.event.STOMPErrorEvent")]
@@ -56,9 +57,9 @@ package org.codehaus.stomp {
 		private var connectHeaders : ConnectHeaders;
 		
 		private var connectTimer : Timer;
-		private var subscriptions : Array = new Array();
-		
-		public var errorMessages : Array = new Array();
+	private var subscriptions:Array = [];
+
+	public var errorMessages:Array = [];
 		public var sessionID : String;
 		public var connectTime : Date;
 		public var disconnectTime : Date;
@@ -71,7 +72,7 @@ package org.codehaus.stomp {
 		public function connect( server : String = "localhost", port : int = 61613, connectHeaders : ConnectHeaders = null, socket: Socket = null) : void 
 		{
 			this.server = server;
-			this.port = port
+			this.port = port;
 			this.connectHeaders = connectHeaders;
 			this.socket = socket || new Socket();
 			
@@ -372,11 +373,11 @@ package org.codehaus.stomp {
 }
 
 
-import org.rxr.utils.ByteArrayReader;
 import flash.utils.ByteArray;
 import flash.utils.IDataInput;
-import org.codehaus.stomp.Stomp;
-	
+
+import rxr.utils.ByteArrayReader;
+
 internal class FrameReader {
 	
 	private var reader : ByteArrayReader;

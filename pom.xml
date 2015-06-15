@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.codehaus</groupId>
+    <artifactId>as3-stomp</artifactId>
+    <version>0.7-SNAPSHOT</version>
+    <packaging>swc</packaging>
+
+    <name>as3-stomp</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <flexmojos-maven-plugin>7.1.0-SNAPSHOT</flexmojos-maven-plugin>
+        <flex.version>4.14.1.20150325</flex.version>
+        <playerglobal.version>17.0</playerglobal.version>
+        <swf.version>28</swf.version>
+    </properties>
+
+    <build>
+        <sourceDirectory>src/main/as3</sourceDirectory>
+        <testSourceDirectory>src/test/as3/</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>net.flexmojos.oss</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>7.1.0-SNAPSHOT</version>
+                <extensions>true</extensions>
+                <inherited>true</inherited>
+                <configuration>
+                    <debug>true</debug>
+                    <flashPlayerCommand>${project.basedir}/bin/flashplayer/mac/Flash Player.app/Contents/MacOS/Flash
+                        Player Debugger
+                    </flashPlayerCommand>
+                    <targetPlayer>${playerglobal.version}</targetPlayer>
+                    <swfVersion>${swf.version}</swfVersion>
+                    <storepass>na</storepass>
+                    <optimize>true</optimize>
+                    <verboseStacktraces>true</verboseStacktraces>
+                    <incremental>true</incremental>
+                    <coverage>true</coverage>
+                    <compilerWarnings>
+                        <warn-no-constructor>false</warn-no-constructor>
+                    </compilerWarnings>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>${flex.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.flash.framework</groupId>
+            <artifactId>playerglobal</artifactId>
+            <version>${playerglobal.version}</version>
+            <type>swc</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flex</groupId>
+            <artifactId>framework</artifactId>
+            <version>${flex.version}</version>
+            <type>pom</type>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>brightware-repo</id>
+            <url>https://dl.dropboxusercontent.com/u/22095429/maven</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>brightware-repo</id>
+            <url>https://dl.dropboxusercontent.com/u/22095429/maven</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

@@ -1,4 +1,4 @@
-/**
+﻿/**
  *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -7,7 +7,7 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.src.main.as3.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,20 +16,24 @@
  * limitations under the License.
  */
 
-package org.codehaus.stomp.frame
-{
-	import flash.utils.ByteArray;
-	
-	public class ErrorFrame
-	{
-		public var body : ByteArray;
-		public var headers : Object;
+/*
+ Version 0.1 : R Jewson (rjewson at gmail dot com).  First release, only for reciept of messages.
+ */
 
-		public function ErrorFrame (body : ByteArray, headers : Object)
-		{
-			this.body = body;
-			this.headers = headers;
-		}
+package org.codehaus.stomp.event {
 
-	}
+import flash.events.Event;
+
+import org.codehaus.stomp.frame.ErrorFrame;
+
+public class STOMPErrorEvent extends Event {
+    static public const ERROR:String = "ErrorEvent";
+
+    public var error:ErrorFrame;
+
+    public function STOMPErrorEvent(eventType:String) {
+        super(eventType, true, false);
+    }
+
+}
 }
